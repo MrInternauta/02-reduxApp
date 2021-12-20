@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 
 @Component({
     selector: 'app-hijo',
@@ -7,10 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     ]
 })
 export class HijoComponent implements OnInit {
-    @Input() contador: number;
-    @Output() contadorOut = new EventEmitter<number>();
-    constructor() {
-        this.contador = 0;
+    contador!: number;
+    constructor(private store: Store<AppState>) {
+        this.store.select('contador').subscribe(contador=> this.contador = contador);
     }
 
     ngOnInit(): void {
@@ -18,17 +19,14 @@ export class HijoComponent implements OnInit {
 
     multiplicar() {
         this.contador *= 2;
-        this.contadorOut.emit(this.contador);
     }
 
     dividir() {
         this.contador /= 2;
-        this.contadorOut.emit(this.contador);
     }
 
     contadorNieto($event: number){
         this.contador = $event;
-        this.contadorOut.emit(this.contador);
     }
 
 }
