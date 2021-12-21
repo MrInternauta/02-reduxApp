@@ -17,12 +17,12 @@ export class DecrementarAction implements Action {
 
 export class DivAction implements Action {
   readonly type: string = DIV;
-  constructor(public payload: number) {}
+  constructor(public readonly payload: number) {}
 }
 
 export class MulAction implements Action {
   readonly type: string = MUL;
-  constructor(public payload: number) {}
+  constructor(public readonly payload: number) {}
 }
 
 export class ResetAction implements Action {
@@ -33,9 +33,9 @@ export class ResetAction implements Action {
 // export const reset = createAction('[Contador] Reset');
 
 export type newActions =
-  | Action
-  | IncrementarAction
-  | DecrementarAction
+  | any
   | DivAction
   | MulAction
+  | IncrementarAction
+  | DecrementarAction
   | ResetAction;

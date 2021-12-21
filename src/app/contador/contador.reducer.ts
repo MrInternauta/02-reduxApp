@@ -18,9 +18,9 @@ export function counterReducer(state: number = 0, action: actions.newActions) {
     case actions.RESET:
       return (state = 0);
     case actions.MUL:
-      return state * new actions.MulAction(2).payload;
+      return state * action.payload;
     case actions.DIV:
-      return state / new actions.DivAction(2).payload;
+      return state / action.payload;
     default:
       return state;
   }

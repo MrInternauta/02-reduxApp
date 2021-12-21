@@ -19,11 +19,11 @@ export class HijoComponent implements OnInit {
   ngOnInit(): void {}
 
   multiplicar() {
-    this.store.dispatch(new MulAction(this.contador));
+    this.store.dispatch(new MulAction(2));
   }
 
   dividir() {
-    this.store.dispatch(new DivAction(this.contador));
+    this.store.dispatch(new DivAction(2));
   }
 
   contadorNieto($event: number) {
