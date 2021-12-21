@@ -1,28 +1,28 @@
 import * as actions from './contador.actions';
- 
+
 export const initialState = 0;
- 
+
 // const _counterReducer = createReducer(
 //   initialState,
 //   on(increment, (state) => state + 1),
 //   on(decrement, (state) => state - 1),
 //   on(reset, (state) => 0)
 // );
- 
-export function counterReducer(state: number = 0, action: actions.newAction) {
-    switch (action.type) {
-        case actions.INCREMENT:
-            return state + 1;
-        case actions.DECREMENT:
-            return state - 1;
-        case actions.RESET:
-                return state = 0;
-        case actions.MUL:
-            return state * new actions.MulAction(2).payload;
-        case actions.DIV:
-            return state * new actions.DivAction(2).payload;
-        default:
-            return state;
-    }
+
+export function counterReducer(state: number = 0, action: actions.newActions) {
+  switch (action.type) {
+    case actions.INCREMENT:
+      return state + 1;
+    case actions.DECREMENT:
+      return state - 1;
+    case actions.RESET:
+      return (state = 0);
+    case actions.MUL:
+      return state * new actions.MulAction(2).payload;
+    case actions.DIV:
+      return state / new actions.DivAction(2).payload;
+    default:
+      return state;
+  }
   //return _counterReducer(state, action);
 }
